@@ -1,9 +1,11 @@
 package com.kaba4cow.maplevel.elements;
 
+import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
 import com.kaba4cow.maplevel.MAPElement;
+import com.kaba4cow.stringview.StringView;
 
 /**
  * Represents a set of properties for an entity in a MAP file.
@@ -14,6 +16,15 @@ public class MAPProperties implements MAPElement {
 
 	MAPProperties() {
 		this.properties = new LinkedHashMap<>();
+	}
+
+	/**
+	 * Retrieves an unmodifiable map of properties.
+	 * 
+	 * @return map of properties
+	 */
+	public Map<String, String> getProperties() {
+		return Collections.unmodifiableMap(properties);
 	}
 
 	/**
@@ -37,6 +48,30 @@ public class MAPProperties implements MAPElement {
 	 */
 	public String get(String key, String defaultValue) {
 		return properties.getOrDefault(key, defaultValue);
+	}
+
+	/**
+	 * Creates and returns a {@link StringView} for a property value associated with the specified key.
+	 * 
+	 * @param key the property key
+	 * 
+	 * @return a {@link StringView} for the property value corresponding to the key
+	 */
+	public StringView view(String key) {
+		return StringView.view(get(key));
+	}
+
+	/**
+	 * Creates and returns a {@link StringView} for a property value associated with the specified key, or for the specified
+	 * default value.
+	 * 
+	 * @param key          the property key
+	 * @param defaultValue the default value for the {@link StringView} if the key is not found
+	 * 
+	 * @return a {@link StringView} for the property value corresponding to the key
+	 */
+	public StringView view(String key, String defaultValue) {
+		return StringView.view(get(key, defaultValue));
 	}
 
 	/**
