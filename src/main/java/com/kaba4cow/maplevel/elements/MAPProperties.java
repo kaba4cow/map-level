@@ -88,6 +88,17 @@ public class MAPProperties implements MAPElement {
 	}
 
 	/**
+	 * Checks if a property with the specified key exists.
+	 *
+	 * @param key the key to check for
+	 * 
+	 * @return {@code true} if a property with the specified key exists, {@code false} otherwise
+	 */
+	public boolean has(String key) {
+		return properties.containsKey(key);
+	}
+
+	/**
 	 * Removes a property with the specified key.
 	 *
 	 * @param key the key of the property to remove
@@ -133,7 +144,7 @@ public class MAPProperties implements MAPElement {
 
 	@Override
 	public String toString() {
-		return String.format("MAPProperties [properties=%s]", properties);
+		return String.format("MAPProperties %s", properties);
 	}
 
 }
