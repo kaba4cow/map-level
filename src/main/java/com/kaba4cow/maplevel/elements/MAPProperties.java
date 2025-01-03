@@ -3,6 +3,7 @@ package com.kaba4cow.maplevel.elements;
 import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.Objects;
 
 import com.kaba4cow.maplevel.MAPElement;
 import com.kaba4cow.stringview.StringView;
@@ -39,15 +40,17 @@ public class MAPProperties implements MAPElement {
 	}
 
 	/**
-	 * Retrieves the property value associated with the specified key, or a default value if the property is not set.
+	 * Retrieves the property value associated with the specified key, or default value string representation if the property is
+	 * not set.
 	 *
 	 * @param key          the property key
 	 * @param defaultValue the default value to return if the key is not found
 	 * 
-	 * @return the property value corresponding to the key, or {@code defaultValue} if the key is not found
+	 * @return the property value corresponding to the key, or {@code defaultValue} string representation if the key is not
+	 *             found
 	 */
-	public String get(String key, String defaultValue) {
-		return properties.getOrDefault(key, defaultValue);
+	public String get(String key, Object defaultValue) {
+		return properties.getOrDefault(key, Objects.toString(defaultValue));
 	}
 
 	/**
@@ -63,27 +66,27 @@ public class MAPProperties implements MAPElement {
 
 	/**
 	 * Creates and returns a {@link StringView} for a property value associated with the specified key, or for the specified
-	 * default value.
+	 * default value string representation.
 	 * 
 	 * @param key          the property key
 	 * @param defaultValue the default value for the {@link StringView} if the key is not found
 	 * 
 	 * @return a {@link StringView} for the property value corresponding to the key
 	 */
-	public StringView view(String key, String defaultValue) {
-		return StringView.view(get(key, defaultValue));
+	public StringView view(String key, Object defaultValue) {
+		return StringView.view(get(key, Objects.toString(defaultValue)));
 	}
 
 	/**
-	 * Sets the value for a property with the specified key.
+	 * Sets the value string representation for a property with the specified key.
 	 *
 	 * @param key   the key of the property
 	 * @param value the value of the property
 	 * 
 	 * @return a reference to this object
 	 */
-	public MAPProperties set(String key, String value) {
-		properties.put(key, value);
+	public MAPProperties set(String key, Object value) {
+		properties.put(key, Objects.toString(value));
 		return this;
 	}
 
