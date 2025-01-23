@@ -61,7 +61,7 @@ public class MAPProperties implements MAPElement {
 	 * @return a {@link StringView} for the property value corresponding to the key
 	 */
 	public StringView view(String key) {
-		return StringView.view(get(key));
+		return new StringView(get(key));
 	}
 
 	/**
@@ -74,7 +74,7 @@ public class MAPProperties implements MAPElement {
 	 * @return a {@link StringView} for the property value corresponding to the key
 	 */
 	public StringView view(String key, Object defaultValue) {
-		return StringView.view(get(key, Objects.toString(defaultValue)));
+		return new StringView(get(key)).orElse(Objects.toString(defaultValue));
 	}
 
 	/**

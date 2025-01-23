@@ -4,10 +4,9 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.kaba4cow</groupId>
 	<artifactId>map-level</artifactId>
-	<version>1.3.0</version>
+	<version>1.3.1</version>
 	<name>MAP Level</name>
-	<description>A lightweight Java library for parsing and manipulating Valve
-		MAP level files</description>
+	<description>A lightweight Java library for parsing and manipulating Valve MAP level files</description>
 	<packaging>jar</packaging>
 	<properties>
 		<maven.compiler.source>8</maven.compiler.source>
@@ -55,7 +54,7 @@
 		<dependency>
 			<groupId>com.kaba4cow</groupId>
 			<artifactId>string-view</artifactId>
-			<version>1.0.1</version>
+			<version>2.0.0</version>
 		</dependency>
 	</dependencies>
 </project>
