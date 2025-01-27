@@ -5,12 +5,7 @@ A lightweight **Java** library for parsing and manipulating **[MAP](https://quak
 ## Features
 
 - Parse MAP files with complete structural representation
-- Support for:
-  - Entities
-  - Entity properties
-  - Brushes
-  - Faces
-  - Texture properties
+- Support for entities, entity properties, brushes, faces and texture properties
 - Immutable collections for safe object manipulation
 - Detailed string representations of MAP elements
 

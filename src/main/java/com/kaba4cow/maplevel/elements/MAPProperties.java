@@ -40,20 +40,6 @@ public class MAPProperties implements MAPElement {
 	}
 
 	/**
-	 * Retrieves the property value associated with the specified key, or default value string representation if the property is
-	 * not set.
-	 *
-	 * @param key          the property key
-	 * @param defaultValue the default value to return if the key is not found
-	 * 
-	 * @return the property value corresponding to the key, or {@code defaultValue} string representation if the key is not
-	 *             found
-	 */
-	public String get(String key, Object defaultValue) {
-		return properties.getOrDefault(key, Objects.toString(defaultValue));
-	}
-
-	/**
 	 * Creates and returns a {@link StringView} for a property value associated with the specified key.
 	 * 
 	 * @param key the property key
@@ -62,19 +48,6 @@ public class MAPProperties implements MAPElement {
 	 */
 	public StringView view(String key) {
 		return new StringView(get(key));
-	}
-
-	/**
-	 * Creates and returns a {@link StringView} for a property value associated with the specified key, or for the specified
-	 * default value string representation.
-	 * 
-	 * @param key          the property key
-	 * @param defaultValue the default value for the {@link StringView} if the key is not found
-	 * 
-	 * @return a {@link StringView} for the property value corresponding to the key
-	 */
-	public StringView view(String key, Object defaultValue) {
-		return new StringView(get(key, defaultValue));
 	}
 
 	/**
