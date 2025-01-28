@@ -1,9 +1,11 @@
 package com.kaba4cow.maplevel.elements;
 
+import java.util.Collection;
 import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Set;
 
 import com.kaba4cow.maplevel.MAPElement;
 import com.kaba4cow.stringview.StringView;
@@ -26,6 +28,24 @@ public class MAPProperties implements MAPElement {
 	 */
 	public Map<String, String> getProperties() {
 		return Collections.unmodifiableMap(properties);
+	}
+
+	/**
+	 * Retrieves an unmodifiable set of property names.
+	 * 
+	 * @return set of property names
+	 */
+	public Set<String> getPropertyNames() {
+		return Collections.unmodifiableSet(properties.keySet());
+	}
+
+	/**
+	 * Retrieves an unmodifiable collection of property values.
+	 * 
+	 * @return collection of property values
+	 */
+	public Collection<String> getPropertyValues() {
+		return Collections.unmodifiableCollection(properties.values());
 	}
 
 	/**
