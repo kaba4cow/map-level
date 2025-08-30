@@ -2,16 +2,49 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
+
 	<groupId>com.kaba4cow</groupId>
 	<artifactId>map-level</artifactId>
-	<version>1.5.0</version>
+	<version>2.0.0</version>
+
 	<name>MAP Level</name>
 	<description>A lightweight Java library for parsing and manipulating Valve MAP level files</description>
+
+	<licenses>
+		<license>
+			<name>MIT License</name>
+			<url>https://opensource.org/licenses/MIT</url>
+			<distribution>repo</distribution>
+		</license>
+	</licenses>
+
+	<developers>
+		<developer>
+			<id>kaba4cow</id>
+			<name>Yaroslav Fedorenko</name>
+		</developer>
+	</developers>
+
+	<scm>
+		<connection>scm:git:https://github.com/kaba4cow/map-level.git</connection>
+		<developerConnection>scm:git:ssh://git@github.com:kaba4cow/map-level.git</developerConnection>
+		<url>https://github.com/kaba4cow/map-level</url>
+	</scm>
+
 	<properties>
 		<maven.compiler.source>8</maven.compiler.source>
 		<maven.compiler.target>8</maven.compiler.target>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>com.kaba4cow</groupId>
+			<artifactId>string-view</artifactId>
+			<version>3.1.0</version>
+		</dependency>
+	</dependencies>
+
 	<build>
 		<plugins>
 			<plugin>
@@ -49,11 +82,5 @@
 			</plugin>
 		</plugins>
 	</build>
-	<dependencies>
-		<dependency>
-			<groupId>com.kaba4cow</groupId>
-			<artifactId>string-view</artifactId>
-			<version>3.1.0</version>
-		</dependency>
-	</dependencies>
+
 </project>
