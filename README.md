@@ -13,39 +13,43 @@ A lightweight **Java** library for parsing and manipulating **[MAP](https://quak
 
 ## Key Components
 
-### `MAPLevel`
+### `MapLevel`
 Central class representing an entire MAP file, containing:
 - Collection of entities
 - Methods to add, remove, and manage entities
 
-### `MAPEntity`
+### `MapEntity`
 Represents a single entity in the MAP file:
-- Properties storage (`MAPProperties`)
+- Properties storage (`MapProperties`)
 - Brush collection management
 
-### `MAPBrush`
+### `MapBrush`
 Represents a brush within an entity:
 - Face collection
 - Methods for face manipulation
 
-### `MAPFace`
+### `MapFace`
 Defines a single face with:
-- Three defining points (`MAPPoint`)
+- Three defining points (`MapPoint`)
 - Texture information
-- Texture axis (`MAPAxis`)
-- Texture transform (`MAPTransform`)
+- Texture axis (`MapAxis`)
+- Texture transform (`MapTransform`)
 
 ## Usage
 
 ```java
-MAPLevel level = MAPParser.parse(new FileReader("path/to/your/file.map"), null);
-for (MAPEntity entity : level.getEntities()) {
-    MAPProperties properties = entity.getProperties();
-    for (MAPBrush brush : entity.getBrushes()) {
-        List<MAPFace> faces = brush.getFaces("old_texture");
-        for (MAPFace face : faces)
+MapLevel level = MapParser.parse(new FileReader("path/to/your/file.map"), null);
+for (MapEntity entity : level.getEntities()) {
+    MapProperties properties = entity.getProperties();
+    for (MapBrush brush : entity.getBrushes()) {
+        List<MapFace> faces = brush.getFaces("old_texture");
+        for (MapFace face : faces)
             face.setTexture("new_texture");
     }
 }
-String map = level.toMAPString();
+String map = level.toMapString();
 ```
+
+## License
+
+This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) file for details.
