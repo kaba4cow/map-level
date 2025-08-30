@@ -1,18 +1,18 @@
 package com.kaba4cow.maplevel.elements;
 
-import com.kaba4cow.maplevel.MAPElement;
+import com.kaba4cow.maplevel.MapElement;
 
 /**
  * Represents a texture axis of a MAP brush face.
  */
-public class MAPAxis implements MAPElement {
+public class MapAxis implements MapElement {
 
 	private float x;
 	private float y;
 	private float z;
 	private float offset;
 
-	MAPAxis() {
+	MapAxis() {
 		this.x = 0.0f;
 		this.y = 0.0f;
 		this.z = 0.0f;
@@ -25,7 +25,7 @@ public class MAPAxis implements MAPElement {
 	 * @return the x component
 	 */
 	public float getX() {
-		return x;
+		return this.x;
 	}
 
 	/**
@@ -35,7 +35,7 @@ public class MAPAxis implements MAPElement {
 	 * 
 	 * @return a reference to this object
 	 */
-	public MAPAxis setX(float x) {
+	public MapAxis setX(float x) {
 		this.x = x;
 		return this;
 	}
@@ -46,7 +46,7 @@ public class MAPAxis implements MAPElement {
 	 * @return the y component
 	 */
 	public float getY() {
-		return y;
+		return this.y;
 	}
 
 	/**
@@ -56,7 +56,7 @@ public class MAPAxis implements MAPElement {
 	 * 
 	 * @return a reference to this object
 	 */
-	public MAPAxis setY(float y) {
+	public MapAxis setY(float y) {
 		this.y = y;
 		return this;
 	}
@@ -67,7 +67,7 @@ public class MAPAxis implements MAPElement {
 	 * @return the z component
 	 */
 	public float getZ() {
-		return z;
+		return this.z;
 	}
 
 	/**
@@ -77,7 +77,7 @@ public class MAPAxis implements MAPElement {
 	 * 
 	 * @return a reference to this object
 	 */
-	public MAPAxis setZ(float z) {
+	public MapAxis setZ(float z) {
 		this.z = z;
 		return this;
 	}
@@ -88,7 +88,7 @@ public class MAPAxis implements MAPElement {
 	 * @return the offset component
 	 */
 	public float getOffset() {
-		return offset;
+		return this.offset;
 	}
 
 	/**
@@ -98,7 +98,7 @@ public class MAPAxis implements MAPElement {
 	 * 
 	 * @return a reference to this object
 	 */
-	public MAPAxis setOffset(float offset) {
+	public MapAxis setOffset(float offset) {
 		this.offset = offset;
 		return this;
 	}
@@ -109,13 +109,13 @@ public class MAPAxis implements MAPElement {
 	 * @return the MAP string representation of this texture axis
 	 */
 	@Override
-	public String toMAPString() {
-		return String.format("[ %s %s %s %s ]", x, y, z, offset);
+	public String toMapString() {
+		return String.format("[ %s %s %s %s ]", this.x, this.y, this.z, this.offset);
 	}
 
 	@Override
 	public String toString() {
-		return String.format("MAPTextureAxis [x=%s, y=%s, z=%s, offset=%s]", x, y, z, offset);
+		return String.format("MapAxis [x=%s, y=%s, z=%s, offset=%s]", this.x, this.y, this.z, this.offset);
 	}
 
 }

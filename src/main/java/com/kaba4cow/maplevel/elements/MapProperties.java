@@ -7,17 +7,17 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
-import com.kaba4cow.maplevel.MAPElement;
+import com.kaba4cow.maplevel.MapElement;
 import com.kaba4cow.stringview.StringView;
 
 /**
  * Represents a set of properties for an entity in a MAP file.
  */
-public class MAPProperties implements MAPElement {
+public class MapProperties implements MapElement {
 
 	private final Map<String, String> properties;
 
-	MAPProperties() {
+	MapProperties() {
 		this.properties = new LinkedHashMap<>();
 	}
 
@@ -27,7 +27,7 @@ public class MAPProperties implements MAPElement {
 	 * @return map of properties
 	 */
 	public Map<String, String> getProperties() {
-		return Collections.unmodifiableMap(properties);
+		return Collections.unmodifiableMap(this.properties);
 	}
 
 	/**
@@ -36,7 +36,7 @@ public class MAPProperties implements MAPElement {
 	 * @return set of property names
 	 */
 	public Set<String> getPropertyNames() {
-		return Collections.unmodifiableSet(properties.keySet());
+		return Collections.unmodifiableSet(this.properties.keySet());
 	}
 
 	/**
@@ -45,7 +45,7 @@ public class MAPProperties implements MAPElement {
 	 * @return collection of property values
 	 */
 	public Collection<String> getPropertyValues() {
-		return Collections.unmodifiableCollection(properties.values());
+		return Collections.unmodifiableCollection(this.properties.values());
 	}
 
 	/**
@@ -56,7 +56,7 @@ public class MAPProperties implements MAPElement {
 	 * @return the property value corresponding to the key, or {@code null} if the key is not found
 	 */
 	public String get(String key) {
-		return properties.get(key);
+		return this.properties.get(key);
 	}
 
 	/**
@@ -67,7 +67,7 @@ public class MAPProperties implements MAPElement {
 	 * @return a {@link StringView} for the property value corresponding to the key
 	 */
 	public StringView view(String key) {
-		return new StringView(get(key));
+		return new StringView(this.get(key));
 	}
 
 	/**
@@ -78,8 +78,8 @@ public class MAPProperties implements MAPElement {
 	 * 
 	 * @return a reference to this object
 	 */
-	public MAPProperties set(String key, Object value) {
-		properties.put(key, Objects.toString(value));
+	public MapProperties set(String key, Object value) {
+		this.properties.put(key, Objects.toString(value));
 		return this;
 	}
 
@@ -91,7 +91,7 @@ public class MAPProperties implements MAPElement {
 	 * @return {@code true} if a property with the specified key exists, {@code false} otherwise
 	 */
 	public boolean has(String key) {
-		return properties.containsKey(key);
+		return this.properties.containsKey(key);
 	}
 
 	/**
@@ -101,8 +101,8 @@ public class MAPProperties implements MAPElement {
 	 * 
 	 * @return a reference to this object
 	 */
-	public MAPProperties remove(String key) {
-		properties.remove(key);
+	public MapProperties remove(String key) {
+		this.properties.remove(key);
 		return this;
 	}
 
@@ -111,8 +111,8 @@ public class MAPProperties implements MAPElement {
 	 *
 	 * @return a reference to this object
 	 */
-	public MAPProperties clear() {
-		properties.clear();
+	public MapProperties clear() {
+		this.properties.clear();
 		return this;
 	}
 
@@ -122,7 +122,7 @@ public class MAPProperties implements MAPElement {
 	 * @return the number of properties
 	 */
 	public int getPropertyCount() {
-		return properties.size();
+		return this.properties.size();
 	}
 
 	/**
@@ -131,16 +131,16 @@ public class MAPProperties implements MAPElement {
 	 * @return the MAP string representation of the properties
 	 */
 	@Override
-	public String toMAPString() {
+	public String toMapString() {
 		StringBuilder builder = new StringBuilder();
-		for (Map.Entry<String, String> property : properties.entrySet())
+		for (Map.Entry<String, String> property : this.properties.entrySet())
 			builder.append(String.format("\"%s\" \"%s\"\n", property.getKey(), property.getValue()));
 		return builder.toString();
 	}
 
 	@Override
 	public String toString() {
-		return String.format("MAPProperties %s", properties);
+		return String.format("MapProperties [properties=%s]", this.properties);
 	}
 
 }

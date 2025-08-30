@@ -7,29 +7,29 @@ import java.util.Objects;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
-import com.kaba4cow.maplevel.MAPElement;
+import com.kaba4cow.maplevel.MapElement;
 
 /**
  * Represents a single brush of a MAP entity.
  */
-public class MAPBrush implements MAPElement {
+public class MapBrush implements MapElement {
 
-	private final List<MAPFace> faces;
+	private final List<MapFace> faces;
 
 	/**
 	 * Creates a new MAP brush.
 	 */
-	public MAPBrush() {
+	public MapBrush() {
 		this.faces = new ArrayList<>();
 	}
 
 	/**
 	 * Retrieves an unmodifiable list of faces in the model.
 	 *
-	 * @return an unmodifiable list of {@link MAPFace} objects
+	 * @return an unmodifiable list of {@link MapFace} objects
 	 */
-	public List<MAPFace> getFaces() {
-		return Collections.unmodifiableList(faces);
+	public List<MapFace> getFaces() {
+		return Collections.unmodifiableList(this.faces);
 	}
 
 	/**
@@ -39,8 +39,8 @@ public class MAPBrush implements MAPElement {
 	 * 
 	 * @return a list of faces matching the predicate
 	 */
-	public List<MAPFace> getFaces(Predicate<MAPFace> predicate) {
-		return faces.stream().filter(predicate).collect(Collectors.toList());
+	public List<MapFace> getFaces(Predicate<MapFace> predicate) {
+		return this.faces.stream().filter(predicate).collect(Collectors.toList());
 	}
 
 	/**
@@ -50,8 +50,8 @@ public class MAPBrush implements MAPElement {
 	 * 
 	 * @return a list of faces with the specified texture
 	 */
-	public List<MAPFace> getFaces(String texture) {
-		return getFaces(face -> Objects.equals(face.getTexture(), texture));
+	public List<MapFace> getFaces(String texture) {
+		return this.getFaces(face -> Objects.equals(face.getTexture(), texture));
 	}
 
 	/**
@@ -61,19 +61,19 @@ public class MAPBrush implements MAPElement {
 	 * 
 	 * @return a reference to this object
 	 */
-	public MAPFace getFace(int index) {
-		return faces.get(index);
+	public MapFace getFace(int index) {
+		return this.faces.get(index);
 	}
 
 	/**
 	 * Adds a face to the model.
 	 *
-	 * @param face the {@link MAPFace} to add
+	 * @param face the {@link MapFace} to add
 	 * 
 	 * @return a reference to this object
 	 */
-	public MAPBrush addFace(MAPFace face) {
-		faces.add(face);
+	public MapBrush addFace(MapFace face) {
+		this.faces.add(face);
 		return this;
 	}
 
@@ -84,8 +84,8 @@ public class MAPBrush implements MAPElement {
 	 * 
 	 * @return a reference to this object
 	 */
-	public MAPBrush removeFace(int index) {
-		faces.remove(index);
+	public MapBrush removeFace(int index) {
+		this.faces.remove(index);
 		return this;
 	}
 
@@ -96,8 +96,8 @@ public class MAPBrush implements MAPElement {
 	 * 
 	 * @return a reference to this object
 	 */
-	public MAPBrush removeFace(MAPFace face) {
-		faces.remove(face);
+	public MapBrush removeFace(MapFace face) {
+		this.faces.remove(face);
 		return this;
 	}
 
@@ -106,8 +106,8 @@ public class MAPBrush implements MAPElement {
 	 * 
 	 * @return a reference to this object
 	 */
-	public MAPBrush clearFaces() {
-		faces.clear();
+	public MapBrush clearFaces() {
+		this.faces.clear();
 		return this;
 	}
 
@@ -117,7 +117,7 @@ public class MAPBrush implements MAPElement {
 	 * @return the number of faces
 	 */
 	public int getFaceCount() {
-		return faces.size();
+		return this.faces.size();
 	}
 
 	/**
@@ -126,18 +126,18 @@ public class MAPBrush implements MAPElement {
 	 * @return the MAP string representation of the brush
 	 */
 	@Override
-	public String toMAPString() {
+	public String toMapString() {
 		StringBuilder builder = new StringBuilder();
 		builder.append("{\n");
-		for (MAPFace face : faces)
-			builder.append(face.toMAPString()).append("\n");
+		for (MapFace face : this.faces)
+			builder.append(face.toMapString()).append("\n");
 		builder.append("}");
 		return builder.toString();
 	}
 
 	@Override
 	public String toString() {
-		return String.format("MAPBrush [faces=%s]", faces);
+		return String.format("MapBrush [faces=%s]", this.faces);
 	}
 
 }

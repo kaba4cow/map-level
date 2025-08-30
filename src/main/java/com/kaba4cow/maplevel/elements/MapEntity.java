@@ -4,18 +4,18 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import com.kaba4cow.maplevel.MAPElement;
+import com.kaba4cow.maplevel.MapElement;
 
 /**
  * Represents an entity in a MAP file.
  */
-public class MAPEntity implements MAPElement {
+public class MapEntity implements MapElement {
 
-	private final MAPProperties properties;
-	private final List<MAPBrush> brushes;
+	private final MapProperties properties;
+	private final List<MapBrush> brushes;
 
-	public MAPEntity() {
-		this.properties = new MAPProperties();
+	public MapEntity() {
+		this.properties = new MapProperties();
 		this.brushes = new ArrayList<>();
 	}
 
@@ -24,17 +24,17 @@ public class MAPEntity implements MAPElement {
 	 * 
 	 * @return entity properties
 	 */
-	public MAPProperties getProperties() {
-		return properties;
+	public MapProperties getProperties() {
+		return this.properties;
 	}
 
 	/**
 	 * Retrieves an unmodifiable list of brushes.
 	 *
-	 * @return an unmodifiable list of {@link MAPBrush} objects
+	 * @return an unmodifiable list of {@link MapBrush} objects
 	 */
-	public List<MAPBrush> getBrushes() {
-		return Collections.unmodifiableList(brushes);
+	public List<MapBrush> getBrushes() {
+		return Collections.unmodifiableList(this.brushes);
 	}
 
 	/**
@@ -44,19 +44,19 @@ public class MAPEntity implements MAPElement {
 	 * 
 	 * @return a reference to this object
 	 */
-	public MAPBrush getBrush(int index) {
-		return brushes.get(index);
+	public MapBrush getBrush(int index) {
+		return this.brushes.get(index);
 	}
 
 	/**
 	 * Adds a brush to the model.
 	 *
-	 * @param brush the {@link MAPBrush} to add
+	 * @param brush the {@link MapBrush} to add
 	 * 
 	 * @return a reference to this object
 	 */
-	public MAPEntity addBrush(MAPBrush brush) {
-		brushes.add(brush);
+	public MapEntity addBrush(MapBrush brush) {
+		this.brushes.add(brush);
 		return this;
 	}
 
@@ -67,8 +67,8 @@ public class MAPEntity implements MAPElement {
 	 * 
 	 * @return a reference to this object
 	 */
-	public MAPEntity removeBrush(int index) {
-		brushes.remove(index);
+	public MapEntity removeBrush(int index) {
+		this.brushes.remove(index);
 		return this;
 	}
 
@@ -79,8 +79,8 @@ public class MAPEntity implements MAPElement {
 	 * 
 	 * @return a reference to this object
 	 */
-	public MAPEntity removeBrush(MAPBrush brush) {
-		brushes.remove(brush);
+	public MapEntity removeBrush(MapBrush brush) {
+		this.brushes.remove(brush);
 		return this;
 	}
 
@@ -89,8 +89,8 @@ public class MAPEntity implements MAPElement {
 	 * 
 	 * @return a reference to this object
 	 */
-	public MAPEntity clearBrushes() {
-		brushes.clear();
+	public MapEntity clearBrushes() {
+		this.brushes.clear();
 		return this;
 	}
 
@@ -100,17 +100,17 @@ public class MAPEntity implements MAPElement {
 	 * @return the number of brushes
 	 */
 	public int getBrushCount() {
-		return brushes.size();
+		return this.brushes.size();
 	}
 
 	@Override
-	public String toMAPString() {
+	public String toMapString() {
 		StringBuilder builder = new StringBuilder();
 		builder.append("{\n");
-		builder.append(properties.toMAPString());
-		for (int i = 0; i < brushes.size(); i++) {
+		builder.append(this.properties.toMapString());
+		for (int i = 0; i < this.brushes.size(); i++) {
 			builder.append(String.format("// Brush %s\n", i));
-			builder.append(brushes.get(i).toMAPString()).append("\n");
+			builder.append(this.brushes.get(i).toMapString()).append("\n");
 		}
 		builder.append("}");
 		return builder.toString();
@@ -118,7 +118,7 @@ public class MAPEntity implements MAPElement {
 
 	@Override
 	public String toString() {
-		return String.format("MAPEntity [properties=%s, brushes=%s]", properties, brushes);
+		return String.format("MapEntity [properties=%s, brushes=%s]", this.properties, this.brushes);
 	}
 
 }

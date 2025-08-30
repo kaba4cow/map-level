@@ -6,26 +6,26 @@ import java.util.List;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
-import com.kaba4cow.maplevel.elements.MAPEntity;
+import com.kaba4cow.maplevel.elements.MapEntity;
 
 /**
  * Represents a collection of entities in a MAP file.
  */
-public class MAPLevel implements MAPElement {
+public class MapLevel implements MapElement {
 
-	private final List<MAPEntity> entities;
+	private final List<MapEntity> entities;
 
-	public MAPLevel() {
+	public MapLevel() {
 		this.entities = new ArrayList<>();
 	}
 
 	/**
 	 * Retrieves an unmodifiable list of entities in the model.
 	 *
-	 * @return an unmodifiable list of {@link MAPEntity} objects
+	 * @return an unmodifiable list of {@link MapEntity} objects
 	 */
-	public List<MAPEntity> getEntities() {
-		return Collections.unmodifiableList(entities);
+	public List<MapEntity> getEntities() {
+		return Collections.unmodifiableList(this.entities);
 	}
 
 	/**
@@ -35,8 +35,8 @@ public class MAPLevel implements MAPElement {
 	 * 
 	 * @return a list of entities matching the predicate
 	 */
-	public List<MAPEntity> getEntities(Predicate<MAPEntity> predicate) {
-		return entities.stream().filter(predicate).collect(Collectors.toList());
+	public List<MapEntity> getEntities(Predicate<MapEntity> predicate) {
+		return this.entities.stream().filter(predicate).collect(Collectors.toList());
 	}
 
 	/**
@@ -46,19 +46,19 @@ public class MAPLevel implements MAPElement {
 	 * 
 	 * @return a reference to this object
 	 */
-	public MAPEntity getEntity(int index) {
-		return entities.get(index);
+	public MapEntity getEntity(int index) {
+		return this.entities.get(index);
 	}
 
 	/**
 	 * Adds a entity to the model.
 	 *
-	 * @param entity the {@link MAPEntity} to add
+	 * @param entity the {@link MapEntity} to add
 	 * 
 	 * @return a reference to this object
 	 */
-	public MAPLevel addEntity(MAPEntity entity) {
-		entities.add(entity);
+	public MapLevel addEntity(MapEntity entity) {
+		this.entities.add(entity);
 		return this;
 	}
 
@@ -69,8 +69,8 @@ public class MAPLevel implements MAPElement {
 	 * 
 	 * @return a reference to this object
 	 */
-	public MAPLevel removeEntity(int index) {
-		entities.remove(index);
+	public MapLevel removeEntity(int index) {
+		this.entities.remove(index);
 		return this;
 	}
 
@@ -81,8 +81,8 @@ public class MAPLevel implements MAPElement {
 	 * 
 	 * @return a reference to this object
 	 */
-	public MAPLevel removeEntity(MAPEntity entity) {
-		entities.remove(entity);
+	public MapLevel removeEntity(MapEntity entity) {
+		this.entities.remove(entity);
 		return this;
 	}
 
@@ -91,8 +91,8 @@ public class MAPLevel implements MAPElement {
 	 * 
 	 * @return a reference to this object
 	 */
-	public MAPLevel clearEntities() {
-		entities.clear();
+	public MapLevel clearEntities() {
+		this.entities.clear();
 		return this;
 	}
 
@@ -102,7 +102,7 @@ public class MAPLevel implements MAPElement {
 	 * @return the number of entities
 	 */
 	public int getEntityCount() {
-		return entities.size();
+		return this.entities.size();
 	}
 
 	/**
@@ -111,18 +111,18 @@ public class MAPLevel implements MAPElement {
 	 * @return the MAP string representation of this level
 	 */
 	@Override
-	public String toMAPString() {
+	public String toMapString() {
 		StringBuilder builder = new StringBuilder();
-		for (int i = 0; i < entities.size(); i++) {
+		for (int i = 0; i < this.entities.size(); i++) {
 			builder.append(String.format("// Entity %s\n", i));
-			builder.append(entities.get(i).toMAPString());
+			builder.append(this.entities.get(i).toMapString());
 		}
 		return builder.toString();
 	}
 
 	@Override
 	public String toString() {
-		return String.format("MAPLevel [entities=%s]", entities);
+		return String.format("MapLevel [entities=%s]", this.entities);
 	}
 
 }

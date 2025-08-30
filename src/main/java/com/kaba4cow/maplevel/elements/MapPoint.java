@@ -1,17 +1,17 @@
 package com.kaba4cow.maplevel.elements;
 
-import com.kaba4cow.maplevel.MAPElement;
+import com.kaba4cow.maplevel.MapElement;
 
 /**
  * Represents a plane point of a MAP brush face.
  */
-public class MAPPoint implements MAPElement {
+public class MapPoint implements MapElement {
 
 	private float x;
 	private float y;
 	private float z;
 
-	MAPPoint() {
+	MapPoint() {
 		this.x = 0.0f;
 		this.y = 0.0f;
 		this.z = 0.0f;
@@ -23,7 +23,7 @@ public class MAPPoint implements MAPElement {
 	 * @return the x component
 	 */
 	public float getX() {
-		return x;
+		return this.x;
 	}
 
 	/**
@@ -33,7 +33,7 @@ public class MAPPoint implements MAPElement {
 	 * 
 	 * @return a reference to this object
 	 */
-	public MAPPoint setX(float x) {
+	public MapPoint setX(float x) {
 		this.x = x;
 		return this;
 	}
@@ -44,7 +44,7 @@ public class MAPPoint implements MAPElement {
 	 * @return the y component
 	 */
 	public float getY() {
-		return y;
+		return this.y;
 	}
 
 	/**
@@ -54,7 +54,7 @@ public class MAPPoint implements MAPElement {
 	 * 
 	 * @return a reference to this object
 	 */
-	public MAPPoint setY(float y) {
+	public MapPoint setY(float y) {
 		this.y = y;
 		return this;
 	}
@@ -65,7 +65,7 @@ public class MAPPoint implements MAPElement {
 	 * @return the z component
 	 */
 	public float getZ() {
-		return z;
+		return this.z;
 	}
 
 	/**
@@ -75,7 +75,7 @@ public class MAPPoint implements MAPElement {
 	 * 
 	 * @return a reference to this object
 	 */
-	public MAPPoint setZ(float z) {
+	public MapPoint setZ(float z) {
 		this.z = z;
 		return this;
 	}
@@ -86,13 +86,13 @@ public class MAPPoint implements MAPElement {
 	 * @return the MAP string representation of this plane point
 	 */
 	@Override
-	public String toMAPString() {
-		return String.format("( %s %s %s )", x, y, z);
+	public String toMapString() {
+		return String.format("( %s %s %s )", this.x, this.y, this.z);
 	}
 
 	@Override
 	public String toString() {
-		return String.format("MAPPlanePoint [x=%s, y=%s, z=%s]", x, y, z);
+		return String.format("MapPoint [x=%s, y=%s, z=%s]", this.x, this.y, this.z);
 	}
 
 }

@@ -1,17 +1,17 @@
 package com.kaba4cow.maplevel.elements;
 
-import com.kaba4cow.maplevel.MAPElement;
+import com.kaba4cow.maplevel.MapElement;
 
 /**
  * Represents a texture transform of a MAP brush face.
  */
-public class MAPTransform implements MAPElement {
+public class MapTransform implements MapElement {
 
 	private float rotation;
 	private float scaleX;
 	private float scaleY;
 
-	MAPTransform() {
+	MapTransform() {
 		this.rotation = 0.0f;
 		this.scaleX = 0.0f;
 		this.scaleY = 0.0f;
@@ -23,7 +23,7 @@ public class MAPTransform implements MAPElement {
 	 * @return the rotation
 	 */
 	public float getRotation() {
-		return rotation;
+		return this.rotation;
 	}
 
 	/**
@@ -33,7 +33,7 @@ public class MAPTransform implements MAPElement {
 	 * 
 	 * @return a reference to this object
 	 */
-	public MAPTransform setRotation(float rotation) {
+	public MapTransform setRotation(float rotation) {
 		this.rotation = rotation;
 		return this;
 	}
@@ -44,7 +44,7 @@ public class MAPTransform implements MAPElement {
 	 * @return the x component
 	 */
 	public float getScaleX() {
-		return scaleX;
+		return this.scaleX;
 	}
 
 	/**
@@ -54,7 +54,7 @@ public class MAPTransform implements MAPElement {
 	 * 
 	 * @return a reference to this object
 	 */
-	public MAPTransform setScaleX(float scaleX) {
+	public MapTransform setScaleX(float scaleX) {
 		this.scaleX = scaleX;
 		return this;
 	}
@@ -65,7 +65,7 @@ public class MAPTransform implements MAPElement {
 	 * @return the y component
 	 */
 	public float getScaleY() {
-		return scaleY;
+		return this.scaleY;
 	}
 
 	/**
@@ -75,7 +75,7 @@ public class MAPTransform implements MAPElement {
 	 * 
 	 * @return a reference to this object
 	 */
-	public MAPTransform setScaleY(float scaleY) {
+	public MapTransform setScaleY(float scaleY) {
 		this.scaleY = scaleY;
 		return this;
 	}
@@ -86,13 +86,13 @@ public class MAPTransform implements MAPElement {
 	 * @return the MAP string representation of this texture transform
 	 */
 	@Override
-	public String toMAPString() {
-		return String.format("%s %s %s", rotation, scaleX, scaleY);
+	public String toMapString() {
+		return String.format("%s %s %s", this.rotation, this.scaleX, this.scaleY);
 	}
 
 	@Override
 	public String toString() {
-		return String.format("MAPTextureTransform [rotation=%s, scaleX=%s, scaleY=%s]", rotation, scaleX, scaleY);
+		return String.format("MapTransform [rotation=%s, scaleX=%s, scaleY=%s]", this.rotation, this.scaleX, this.scaleY);
 	}
 
 }
